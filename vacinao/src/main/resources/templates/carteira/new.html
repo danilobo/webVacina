@@ -10,14 +10,28 @@
     <div class="row">
         <div class="col-12">
             <h3>Vacina tomada</h3>
-            <form action="/carteira" METHOD="POST">
+            <form th:object="${carteiraRequisicao}" action="/carteiras" METHOD="POST">
                 <div class="form-group">
                     <label class="form-label">Nome da vacina</label>
-                    <select class="form-select" name="nomesVacinas">
+                    <select class="form-select" th:field="*{idVacinas}">
                         <option th:each="vacina : ${vacinas}" th:value="${vacina.getId()}" th:text="${vacina.getNome()}"></option>
                     </select>
+                    <div class="invalid-feedback" th:errors="*{idVacinas}"></div>
                     <br>
                 </div>
+                <div class="form-group">
+                    <label for="inputSUS">Cartão SUS</label>
+                    <input type="text" class="form-control" id="inputSUS" placeholder="Digite o nuemro do cartão SUS do paciente"  th:field="*{idUsuario}">
+                    <div class="invalid-feedback" th:errors="*{idUsuario}"></div>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="inputSUS">Data da aplicação</label>
+                    <input type="text" class="form-control" id="inputSUS" placeholder="Digite o nuemro do cartão SUS do paciente" th:field="*{aplicacaoData}">
+                    <div class="invalid-feedback" th:errors="*{aplicacaoData}"></div>
+                    <br>
+                </div>
+                <br>
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <a href="javascript:history.back()">Voltar</a>
             </form>

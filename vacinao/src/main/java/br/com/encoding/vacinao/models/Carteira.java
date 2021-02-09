@@ -1,5 +1,8 @@
 package br.com.encoding.vacinao.models;
 
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.NotFound;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +16,10 @@ public class Carteira {
     private String aplicacaoData;
 
     public Carteira() {
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Long getIdUsuario() {

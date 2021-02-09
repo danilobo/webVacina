@@ -123,7 +123,7 @@ public class VacinaController {
     }
 
     private ModelAndView retornaErroProfessor(String msg) {
-        ModelAndView mv = new ModelAndView("redirect:/professores");
+        ModelAndView mv = new ModelAndView("redirect:/vacinas");
         mv.addObject("mensagem", msg);
         mv.addObject("erro", true);
         return mv;
